@@ -20,7 +20,7 @@
 #include "hal_interface.h"
 #include "stm32f1xx_hal_flash_ex.h"
 
-CRC_HandleTypeDef hcrc;
+//CRC_HandleTypeDef hcrc;
 
 I2C_HandleTypeDef hi2c1;
 I2C_HandleTypeDef hi2c2;
@@ -31,7 +31,7 @@ TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim2;
 TIM_HandleTypeDef htim3;
 
-WWDG_HandleTypeDef hwwdg;
+//WWDG_HandleTypeDef hwwdg;
 
 #ifdef DEBUG
 UART_HandleTypeDef huart1;
@@ -99,11 +99,11 @@ void SystemClock_Config(void) {
   * @param None
   * @retval None
   */
-static void MX_CRC_Init(void) {
+/*static void MX_CRC_Init(void) {
 	hcrc.Instance = CRC;
 	if (HAL_CRC_Init(&hcrc) != HAL_OK)
 		Error_Handler();
-}
+}*/
 
 /**
   * @brief I2C1 Initialization Function
@@ -490,10 +490,10 @@ void HAL_MspInit(void) {
   * @param hcrc: CRC handle pointer
   * @retval None
   */
-void HAL_CRC_MspInit(CRC_HandleTypeDef* hcrc) {
+/*void HAL_CRC_MspInit(CRC_HandleTypeDef* hcrc) {
 	if(hcrc->Instance==CRC)
 		__HAL_RCC_CRC_CLK_ENABLE();
-}
+}*/
 
 /**
   * @brief CRC MSP De-Initialization
@@ -501,10 +501,10 @@ void HAL_CRC_MspInit(CRC_HandleTypeDef* hcrc) {
   * @param hcrc: CRC handle pointer
   * @retval None
   */
-void HAL_CRC_MspDeInit(CRC_HandleTypeDef* hcrc) {
+/*void HAL_CRC_MspDeInit(CRC_HandleTypeDef* hcrc) {
 	if(hcrc->Instance==CRC)
 		__HAL_RCC_CRC_CLK_DISABLE();
-}
+}*/
 
 /**
   * @brief I2C MSP Initialization
@@ -898,7 +898,7 @@ HAL_StatusTypeDef HAL_Interface_init(void) {
 	// Use SRAM backup registers to check if we have soft-reset
 	HAL_PWR_EnableBkUpAccess();
 
-	MX_CRC_Init();
+	//MX_CRC_Init();
 	MX_GPIO_Init();
 	MX_I2C1_Init();
 	MX_I2C2_Init();

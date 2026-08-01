@@ -63,8 +63,6 @@ extern TIM_HandleTypeDef htim1;
 extern TIM_HandleTypeDef htim2;
 extern TIM_HandleTypeDef htim3;
 
-extern WWDG_HandleTypeDef hwwdg;
-
 #ifdef DEBUG
 // Debug UART interface, unused in release to limit consumption mainly
 extern UART_HandleTypeDef huart1;
