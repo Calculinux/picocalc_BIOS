@@ -178,7 +178,8 @@ extern void HAL_I2C_SlaveRxCpltCallback(I2C_HandleTypeDef *hi2c) {
 
 			if (is_write) {
 				// Check for another mandatories bytes depending on register requested
-				if (reg == REG_ID_BKL ||
+				if (reg == REG_ID_INT ||
+					reg == REG_ID_BKL ||
 					reg == REG_ID_BK2 ||
 					reg == REG_ID_RST ||
 					reg == REG_ID_OFF ||
@@ -186,9 +187,11 @@ extern void HAL_I2C_SlaveRxCpltCallback(I2C_HandleTypeDef *hi2c) {
 					reg == REG_ID_INT_CFG ||
 					reg == REG_ID_FRQ) {
 						bytes_needed = 1;
-				} else if (reg == REG_ID_DEB) {
+				} else if (
+					reg == REG_ID_DEB) {
 						bytes_needed = 2;
-				} else if (reg == REG_ID_RTC_DATE ||
+				} else if (
+					reg == REG_ID_RTC_DATE ||
 					reg == REG_ID_RTC_ALARM_DATE ||
 					reg == REG_ID_RTC_TIME ||
 					reg == REG_ID_RTC_ALARM_TIME) {
